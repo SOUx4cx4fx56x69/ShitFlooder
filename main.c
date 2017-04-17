@@ -1,13 +1,3 @@
-#include <sys/types.h>          /* See NOTES */
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include<stdio.h>
-#include<pthread.h>
-#include<time.h>
 #include"main.h"
 
 void ReaddEr(int socket)

@@ -1,6 +1,4 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<time.h>
+#include"main.h"
 
 void
 randString(char*array,int size)
