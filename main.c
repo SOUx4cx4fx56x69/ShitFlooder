@@ -5,6 +5,8 @@ void ReaddEr(int socket)
 char * buffer = (char*)malloc(sizeof(char)*SIZEBUFFER);
 while(readFrom(socket,buffer))
  printf("Recv: %s\n",buffer);
+free(buffer);
+close(socket);
 }
 
 void FlooDer(int socket)
@@ -14,12 +16,13 @@ char * buffer = (char*)malloc(sizeof(char)*SIZEBUFFER);
 randString(buffer, rand() % SIZEBUFFER);
 while( writeTo(socket,buffer) )
  randString(buffer, rand() % SIZEBUFFER);
+free(buffer);
 close(socket);
 }
 
 void main(int argc,char**argd)
 {
-if(argc < 5) error("./programm tcp/udp host port threads\nExample: ./Flooder ucp localhost 6666 5\n");
+if(argc < 5) error("./programm tcp/udp host port threads\nExample: ./Flooder ucp localhost 6666 5");
 int Protocol = strcmp(argd[1], "udp") == 0 ? 1 : 0; 
 while(1)
 {
