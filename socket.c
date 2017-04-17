@@ -3,6 +3,14 @@
 int 
 initSocket(int protocol, char*host,int port)
 {
+#ifdef WIN32
+     WSADATA wsaData;
+     DWORD dwError;
+    // Initialize Winsock
+    if ( (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) )
+        error("WSAStartup failed\n");
+#endif
+
 int sockfd;
 if(protocol) 
  sockfd = socket(AF_INET,SOCK_DGRAM,0);
